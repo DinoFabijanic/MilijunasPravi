@@ -13,6 +13,7 @@ function startGame() {
   clearResult();
   resetHalfHalfAnswers(); // Dodano resetiranje odgovora pri početku nove igre
 }
+
 function showQuestion() {
   document.getElementById("question").innerText = currentQuestion.question;
   updateCurrentMoney();
@@ -32,6 +33,7 @@ function showQuestion() {
 
   updateHelperButtons();
 }
+
 function checkAnswer(isCorrect) {
   const moneyForCurrentQuestion = getMoneyForCurrentQuestion();
 
@@ -47,7 +49,12 @@ function checkAnswer(isCorrect) {
         formatMoney(totalMoney) +
         " EUR."
     );
-    resetGame();
+    setInterval(function(){showResult(
+      "Nažalost, krivi odgovor. Kraj igre. Osvojili ste " +
+        formatMoney(totalMoney) +
+        " EUR."
+    )},5000);
+    setInterval(function(){resetGame()},2000);
   }
 
   highlightCorrectAnswer();
@@ -66,13 +73,6 @@ function getMoneyForCurrentQuestion() {
     68000, 150000,
   ];
   return moneyLevels[currentQuestionIndex - 1] || 0;
-}
-
-function showGoldSquare() {
-  const goldSquare = document.createElement("div");
-  goldSquare.id = "gold-square";
-  goldSquare.innerText = formatMoney(totalMoney);
-  document.body.appendChild(goldSquare);
 }
 
 function highlightCorrectAnswer() {
@@ -107,17 +107,20 @@ function useJoker() {
     document.getElementById("jokerBtn").classList.add("used-helper"); // Add the used-helper class to style the button
   }
 }
+
 function resetGame() {
   currentQuestionIndex = 0;
   totalMoney = 0;
   halfHalfUsed = false;
   callFriendUsed = false;
   currentQuestion = null;
-  startGame();
 
   document.getElementById("halfHalfBtn").classList.remove("used-helper");
   document.getElementById("callFriendBtn").classList.remove("used-helper");
   document.getElementById("jokerBtn").classList.remove("used-helper");
+  
+  //odvedi na glavni page
+  window.location.href = "glavna.html";
 }
 
 function formatMoney(amount) {
@@ -163,6 +166,7 @@ function endGame() {
   clearResult();
   resetGame();
 }
+
 function halfHalf() {
   if (!halfHalfUsed) {
     const wrongAnswers = currentQuestion.answers.filter(
