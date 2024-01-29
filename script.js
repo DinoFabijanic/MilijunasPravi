@@ -27,14 +27,14 @@ function showQuestion() {
     button.innerText = answer.text;
     button.classList.add("option");
     button.setAttribute("data-correct", answer.correct);
-    button.onclick = () => checkAnswer(answer.correct);
+    button.onclick = () => checkAnswer(answer.correct, button);
     optionsContainer.appendChild(button);
   });
 
   updateHelperButtons();
 }
 
-function checkAnswer(isCorrect) {
+function checkAnswer(isCorrect, clickedButton) {
   const moneyForCurrentQuestion = getMoneyForCurrentQuestion();
 
   if (isCorrect) {
@@ -44,17 +44,20 @@ function checkAnswer(isCorrect) {
     );
   } else {
     totalMoney = 0;
+    highlightWrongAnswer(clickedButton);
     showResult(
       "Nažalost, krivi odgovor. Kraj igre. Osvojili ste " +
         formatMoney(totalMoney) +
         " EUR."
     );
-    setInterval(function(){showResult(
-      "Nažalost, krivi odgovor. Kraj igre. Osvojili ste " +
-        formatMoney(totalMoney) +
-        " EUR."
-    )},5000);
-    setInterval(function(){resetGame()},2000);
+    setInterval(function(){
+      showResult(
+        "Nažalost, krivi odgovor. Kraj igre. Osvojili ste " +
+          formatMoney(totalMoney) +
+          " EUR."
+      );
+    }, 5000);
+    setInterval(function(){resetGame()}, 2000);
   }
 
   highlightCorrectAnswer();
@@ -65,7 +68,6 @@ function checkAnswer(isCorrect) {
     clearResult();
   }, 2000);
 }
-
 function getMoneyForCurrentQuestion() {
   // Funkcija koja vraća iznos za trenutno pitanje na temelju indeksa
   const moneyLevels = [
@@ -73,6 +75,11 @@ function getMoneyForCurrentQuestion() {
     68000, 150000,
   ];
   return moneyLevels[currentQuestionIndex - 1] || 0;
+}
+
+function highlightWrongAnswer(clickedButton) {
+  clickedButton.style.backgroundColor = "#FF0000";
+  clickedButton.style.color = "white";
 }
 
 function highlightCorrectAnswer() {
@@ -222,6 +229,8 @@ function getRandomWrongAnswer() {
   );
   return wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)].text;
 }
+
+
 const questions = [
   {
     question:
