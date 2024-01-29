@@ -1,0 +1,217 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(#45103E, purple, #020B4A, #021274);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#question-container {
+    background-color: #8e44ad;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.option {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    outline: none;
+    z-index: 1;
+}
+
+.option:hover {
+    background-color: #e67e22;
+}
+
+#current-money {
+    font-size: 1.0em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.money-pyramid {
+position: fixed;
+font-family: Arial, Helvetica, sans-serif;
+top: 50%;
+right: 268px;
+transform: translateY(-50%);
+z-index: 1;
+text-align: center;
+color: #fff;
+}
+
+
+
+
+.money-level {
+font-size: 1.0em; /* Smanjite veličinu teksta */
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+#helpers {
+display: flex;
+flex-direction: row;
+align-items: flex-end; /* Align items to the right */
+margin-top: -450px;
+position: fixed; /* Added this line to fix the position */
+right: 268px; /* Added this line to add some space from the right edge */
+z-index: 1;
+}
+
+.helper-button {
+margin-top: 10px;
+margin-right: 3px;
+padding: 8px;
+background-color: #3498db;
+color: white;
+border: none;
+font-size: 0.7em;
+transition: background-color 0.3s;
+border-radius: 50%; /* Promijenjeno na 50% za okrugle tipke */
+outline: none;
+z-index: 1;
+}
+
+#jokerBtn {
+margin-top: 10px;
+margin-right: 3px;
+padding: 8px;
+background-color: #3498db;
+color: white;
+border: none;
+font-size: 0.7em;
+transition: background-color 0.3s;
+border-radius: 50%; /* Dodano za okruglu tipku */
+outline: none;
+z-index: 1;
+}
+#jokerBtn.used-helper {
+background-color: #7f8c8d;
+cursor: not-allowed;
+}
+
+.helper-button:hover {
+    background-color: #2980b9;
+}
+
+.used-helper {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+}
+
+#result-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#result {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#end-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#end-game {
+    margin-top: 20px;
+    background-color: #c0392b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+#end-game:hover {
+    background-color: #e74c3c;
+}
+
+
+
+
+#won-amount {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#main-container {
+    position: fixed;
+    width: 75%;
+    height: 85%;
+    background-color: #2980b9;
+    opacity: 0.3;
+    z-index: 0;
+    border-radius: 30px;
+}
+
+#slikamil {
+    position: fixed;
+    width: 20%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#drugi-container {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    background-image: linear-gradient(#45103E, purple, #020B4A, #021274);
+    opacity: 0.5;
+    border-radius: 50px;
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    z-index: 0;
+}
+.money-level1{
+    font-size: 15px;
+    color: gold;
+    font-weight: bold;
+}
+.money-level5{
+    font-size: 15px;
+    color: gold;
+    font-weight: bold;
+}
+.money-level10{
+    font-size: 15px;
+    color: gold;
+    font-weight: bold;
+}
+.money-level15{
+    font-size: 15px;
+    color: gold;
+    font-weight: bold;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tko želi biti milijunaš?</title>
+    <link rel="stylesheet" href="dizajn.css">
+</head>
+<body>
+    <div class="money-pyramid">
+        <div class="money-level15">15. 150,000 €</div>
+        <div class="money-level14">14. 68,000 €</div>
+        <div class="money-level13">13. 34,000 €</div>
+        <div class="money-level12">12. 18,000 €</div>
+        <div class="money-level11">11. 10,000 €</div>
+        <div class="money-level10">10. 5,000 €</div>
+        <div class="money-level9">9. 2,500 €</div>
+        <div class="money-level8">8. 1,000 €</div>
+        <div class="money-level7">7. 600 €</div>
+        <div class="money-level6">6. 300 €</div>
+        <div class="money-level5">5. 150 €</div>
+        <div class="money-level4">4. 100 €</div>
+        <div class="money-level3">3. 50 €</div>
+        <div class="money-level2">2. 20 €</div>
+        <div class="money-level1">1. 10 €</div>
+        <div id="current-money">Trenutno osvojeno: 0 €</div>
+        
+    </div>
+    </div>
+    <div id="main-container"></div>
+    <div id="drugi-container"></div>
+    <div>
+        <img src="image-removebg-preview.png" id="slikamil">
+    </div>
+    <div id="question-container">
+        <div id="question">Dobrodošli! Kliknite "Nastavi" za prvo pitanje.</div>
+    </div>
+
+    <div id="options">
+        <button class="option" onclick="startGame()">Nastavi</button>
+    </div>
+
+    <div id="helpers">
+        <button class="helper-button" id="halfHalfBtn" onclick="halfHalf()">Pola-Pola</button>
+        <button class="helper-button" id="callFriendBtn" onclick="callFriend()">Zovi Prijatelja</button>
+        <button class="helper-button" id="jokerBtn" onclick="useJoker()">Joker</button>
+    </div>
+
+    <div id="result-container">
+        <div id="result"></div>
+    </div>
+
+    <div id="end-game-container">
+        <button id="end-game" onclick="endGame()">Odustajem</button>
+        <div id="won-amount"></div>
+    </div>
+<script src="script.js"></script>
+
+</body>
+</html>
